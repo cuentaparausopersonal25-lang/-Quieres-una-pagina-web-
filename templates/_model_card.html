@@ -1,0 +1,21 @@
+<article class="model-card">
+  <a class="model-card-image" href="{{ url_for('demo', slug=m.slug) }}" aria-label="Ver demostración de {{ m.name }}">
+    <img
+      src="{{ url_for('static', filename='img/categories/' ~ m.category.image) }}"
+      alt="Diseño de ejemplo para {{ m.category.name }}"
+      loading="lazy"
+    >
+  </a>
+  <div class="model-info">
+    <span class="eyebrow">{{ m.category.name }}</span>
+    <h3>{{ m.name }}</h3>
+    <p>{{ m.description }}</p>
+    <div class="model-card-bottom">
+      <strong>{{ money(m.price) }}</strong>
+      <div class="actions">
+        <a class="btn ghost" href="{{ url_for('demo', slug=m.slug) }}">Ver demostración</a>
+        <a class="btn primary" href="{{ url_for('request_model', slug=m.slug) }}">Solicitar esta página</a>
+      </div>
+    </div>
+  </div>
+</article>
